@@ -6,14 +6,43 @@
 
     <!-- ScoreTracker references -->
     <link href="css/index.css" rel="stylesheet" />
+    <link href="css/bootstrap.css" rel="stylesheet" />
 </head>
-<body>
-    <p>Hello, your application is ready!</p>
+<body ng-app="ScoreKeeper" ng-controller="MainController">
+    <div class="header">
+        <h1>Score Keeper</h1>
+    </div>
+
+    <div class="container">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <td ng-repeat="user in users">{{user.name}}</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="index in getRounds()">
+                    <td ng-repeat="user in users">{{user.scores[index].value}}</td>
+                </tr>
+                <tr>
+                    <td ng-repeat="user in users">
+                        <form novalidate>
+                            <input class="new-score-input" type="text" name="score" ng-model="score[$index]" ng-required="true" autocomplete="off" ng-blur="score.doneEntering(user, $index)" ng-pattern="/[1-9]/"></input>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <!-- Cordova reference, this is added to your app when it's built. -->
     <script src="cordova.js"></script>
     <script src="scripts/platformOverrides.js"></script>
     <script src="plugins/com.brodysoft.sqlitePlugin/www/SQLitePlugin.js"></script>
+    <script src="scripts/frameworks/angular.js"></script>
+    <script src="scripts/frameworks/angular-route.js"></script>
+
     <script src="scripts/index.js"></script>
+    <script src="scripts/index/controller/MainController.js"></script>
 </body>
 </html>

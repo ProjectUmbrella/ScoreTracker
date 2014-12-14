@@ -111,6 +111,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="images\" />
+    <Content Include="css\bootstrap-theme.css" />
+    <Content Include="css\bootstrap-theme.css.map" />
+    <Content Include="css\bootstrap-theme.min.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.css.map" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="css\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="css\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="css\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="css\index.min.css">
+      <DependentUpon>index.css</DependentUpon>
+    </Content>
     <Content Include="merges\android\scripts\android2.3-jscompat.js" />
     <Content Include="merges\android\scripts\platformOverrides.js" />
     <Folder Include="merges\ios\" />
@@ -125,8 +138,6 @@
     <Folder Include="res\screens\ios\" />
     <Folder Include="res\screens\windows\" />
     <Folder Include="res\screens\wp8\" />
-    <Folder Include="scripts\i18n\" />
-    <Folder Include="scripts\frameworks\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="config.xml">
@@ -249,7 +260,25 @@
     <Content Include="plugins\com.brodysoft.sqlitePlugin\test-www\www\qunit-1.5.0.js" />
     <Content Include="plugins\com.brodysoft.sqlitePlugin\www\SQLitePlugin.js" />
     <Content Include="scripts\app.js" />
+    <Content Include="scripts\frameworks\angular-route.js" />
+    <Content Include="scripts\frameworks\angular-route.min.js">
+      <DependentUpon>angular-route.js</DependentUpon>
+    </Content>
+    <Content Include="scripts\frameworks\angular-route.min.js.map">
+      <DependentUpon>angular-route.min.js</DependentUpon>
+    </Content>
+    <Content Include="scripts\frameworks\angular.js" />
+    <Content Include="scripts\frameworks\angular.min.js">
+      <DependentUpon>angular.js</DependentUpon>
+    </Content>
+    <Content Include="scripts\frameworks\angular.min.js.map">
+      <DependentUpon>angular.min.js</DependentUpon>
+    </Content>
+    <Content Include="scripts\frameworks\bootstrap.js" />
+    <Content Include="scripts\frameworks\bootstrap.min.js" />
+    <Content Include="scripts\frameworks\npm.js" />
     <Content Include="scripts\index.js" />
+    <Content Include="scripts\index\controller\MainController.js" />
     <Content Include="scripts\platformOverrides.js" />
     <Content Include="css\index.css" />
     <Content Include="res\icons\android\icon-36-ldpi.png" />
