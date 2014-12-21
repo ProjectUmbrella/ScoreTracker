@@ -30,7 +30,7 @@
                 <tr>
                     <td ng-repeat="user in users">
                         <form novalidate>
-                            <input class="new-score-input" type="text" name="score" ng-model="score[$index]" ng-required="true" autocomplete="off" ng-blur="score.doneEntering()" ng-pattern="/[1-9]/"></input>
+                            <input class="new-score-input" type="text" name="score" ng-model="score[$index]" ng-required="true" autocomplete="off" ng-blur="score.doneEntering()" ng-pattern="/[0-9]/"></input>
                         </form>
                     </td>
                 </tr>
