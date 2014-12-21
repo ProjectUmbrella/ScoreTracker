@@ -7,19 +7,30 @@
             {index:2, name:'Player2', scores:[]},
 			{index:3, name:'Player3', scores:[]},
 			{index:4, name:'Player4', scores:[]},
-			{index:5, name:'Player5', scores:[]},
+			//{index:5, name:'Player5', scores:[]},
 			{index:6, name:'Player6', scores:[]}
         ];
 	
         $scope.rounds = $scope.users[0].scores.length;
-        $scope.score.doneEntering = function(data, index) {
-			if (index === 0 && $scope.score[index].length>0) {
-				$scope.rounds++;
-			}
-            if ($scope.score[index] && $scope.score[index].length>0) {
-                data.scores.push({round:$scope.rounds, value: $scope.score[index]});
-                $scope.score[index] = "";
+        $scope.score.doneEntering = function () {
+            var roundCompleted = 1;
+            for (var i = 0; i < $scope.users.length; i++)
+            {
+                if ($scope.score[i].length == 0)
+                    roundCompleted = 0;
             }
+
+
+
+			if (roundCompleted==1) {
+                    for (var i = 0; i < $scope.users.length; i++)
+			        {
+                        $scope.users[i].scores.push({ round: $scope.rounds, value: $scope.score[i] });
+                        $scope.score[i] = "";
+                    }
+			    $scope.rounds++;
+			}
+            
         }
 	
         $scope.getRounds = function() {
