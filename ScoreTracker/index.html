@@ -19,6 +19,9 @@
                 <tr>
                     <td ng-repeat="user in users">{{user.name}}</td>
                 </tr>
+				<tr>
+					<td ng-repeat="user in users" ng-click="getTotal()">{{getTotal(user.scores)}}</td>
+				</tr>
             </thead>
             <tbody>
                 <tr ng-repeat="index in getRounds()">
@@ -33,6 +36,7 @@
                 </tr>
             </tbody>
         </table>
+		<div> <a class="btn btn-primary" ng-click="clearRounds()">New Game</a> </div>
     </div>
 
     <!-- Cordova reference, this is added to your app when it's built. -->
