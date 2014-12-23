@@ -6,15 +6,20 @@
 
     <!-- ScoreTracker references -->
     <link href="css/index.css" rel="stylesheet" />
-    <link href="css/bootstrap.css" rel="stylesheet" />
+	    <link href="css/bootstrap.min.css" rel="stylesheet" />
+	<link href="css/font-awesome.min.css" rel="stylesheet" />
+
 </head>
 <body ng-app="ScoreKeeper" ng-controller="MainController">
-    <div class="header">
+    <div class="header text-left">
         <h1>Score Keeper</h1>
+		<a class="btn-new-game fa fa-2x fa-gamepad btn" ng-click="clearRounds()" style="padding: 20px;">
+		</a>
     </div>
 
     <div class="container">
-        <table class="table table-bordered table-striped">
+        <a class="fa fa-2x fa-user btn btn-default btn-add-user"></a>
+		<table class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <td ng-repeat="user in users">{{user.name}}</td>
@@ -36,15 +41,15 @@
                 </tr>
             </tbody>
         </table>
-		<div> <a class="btn btn-primary" ng-click="clearRounds()">New Game</a> </div>
+		
     </div>
 
     <!-- Cordova reference, this is added to your app when it's built. -->
     <script src="cordova.js"></script>
     <script src="scripts/platformOverrides.js"></script>
     <script src="plugins/com.brodysoft.sqlitePlugin/www/SQLitePlugin.js"></script>
-    <script src="scripts/frameworks/angular.js"></script>
-    <script src="scripts/frameworks/angular-route.js"></script>
+    <script src="scripts/frameworks/angular.min.js"></script>
+    <script src="scripts/frameworks/angular-route.min.js"></script>
 
     <script src="scripts/index.js"></script>
     <script src="scripts/index/controller/MainController.js"></script>
