@@ -97,7 +97,11 @@
 		            round: i, value: 0
 		        });
 		    }
-		    $scope.users[i].scores
+		    
+		}
+
+		$scope.removePlayer = function (index) {
+		    $scope.users.splice(index, 1);
 		}
 	
     }]);

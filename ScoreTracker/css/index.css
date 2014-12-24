@@ -21,6 +21,18 @@ h1 {
 	border: none;
 }
 
+.user-input{
+    float:none;
+	width:90%;
+	border: none;
+}
+
+.delete-icon{
+    float:none;
+	border: none;
+    display:none;
+}
+
 .btn-new-game {
 	float: right;
 	background-color: #777;
