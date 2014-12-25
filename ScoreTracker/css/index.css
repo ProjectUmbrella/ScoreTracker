@@ -12,8 +12,14 @@ h1 {
 	background-color: #777777;
 	color: #ffffff;
 	border-bottom: 5px solid #000000;
-	margin-bottom: 3em;
+	margin-bottom: 1em;
 	padding-left: 1em;
+}
+
+.header-title {
+	font-size: 1.5em;
+	float: left;
+	margin-top: 1em;
 }
 
 .new-score-input{
@@ -22,15 +28,16 @@ h1 {
 }
 
 .user-input{
-    float:none;
-	width:90%;
+    float:left;
+	width:60%;
 	border: none;
+	font-family: cursive;
+	font-weight: bold;
 }
 
 .delete-icon{
-    float:none;
-	border: none;
-    display:none;
+    float: right;
+	margin-top: 0.3em;
 }
 
 .btn-new-game {
@@ -40,6 +47,16 @@ h1 {
 	color:#fff
 }
 
-.btn-add-user {
-	float:right;
+.add-user-menu-item {
+	width: 100%;
+	text-align: center;
+	background: ghostwhite;
+	margin-bottom: 1em;
+	border-radius: 0.8em;
+}
+
+.total {
+	width: 60%;
+	float: left;
+	font-weight: bold;
 }
