@@ -24,7 +24,7 @@
             <thead>
                 <tr>
                     <td ng-repeat="user in users" nowrap="nowrap">                    
-                    <input display="none" class="user-input" type="text" name="score" maxlength="20" ng-model="user.name" ng-required="true" autocomplete="off" ng-blur="score.doneEntering()" ng-pattern="/[a-z]/">
+                    <input display="none" class="user-input" type="text" name="score" maxlength="20" ng-model="user.name" ng-required="true" autocomplete="off" ng-blur="score.doneEnteringUser()" ng-pattern="/[a-z]/">
                         </input>
                         <del class="fa fa-trash-o fa-fw delete-icon" ng-click="removePlayer($index)">
                         </del>                    
@@ -41,9 +41,7 @@
                 </tr>
                 <tr>
                     <td ng-repeat="user in users">
-                        <form novalidate>
-                            <input class="new-score-input" type="number" name="score" ng-model="score[$index]" ng-required="true" autocomplete="off" ng-blur="score.doneEntering()" ng-pattern="/[0-9]/"></input>
-                        </form>
+                            <input class="new-score-input" type="number" name="score" ng-model="score[$index]" ng-required="true" autocomplete="off" ng-blur="score.doneEntering()" ng-pattern="/[0-9]/"/>
                     </td>
                 </tr>
             </tbody>
