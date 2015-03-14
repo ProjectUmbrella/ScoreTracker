@@ -1,15 +1,11 @@
-(function () {'use strict';
-    angular.module("ScoreKeeper", ['ngRoute']).controller('MainController', ['$scope', function($scope) {
+'use strict';
+
+
+
+	angular.module('ScoreKeeper').controller('MainController', ['$scope', 'GameService', function($scope, GameService) {
         $scope.total = {};
         $scope.score = {};
-        $scope.users = [
-            {index:1, name:'Hari', scores:[]},
-            {index:2, name:'Radhika', scores:[]},
-			{index:3, name:'Kumar', scores:[]},
-			{index:4, name:'Venky', scores:[]},
-			{index:5, name:'Harshika', scores:[]},
-			{index:6, name:'Rajesh', scores:[]}
-        ];
+        $scope.users = GameService.getData();
         $scope.DEFAULTVALUE = "-0.0001";
         $scope.rounds = $scope.users[0].scores.length;
 
@@ -19,7 +15,7 @@
             {
                 var currentFieldScore = parseInt($scope.score[i]);
                 if (isNaN(currentFieldScore) || parseFloat($scope.score[i]) == parseFloat($scope.DEFAULTVALUE))
-                    roundCompleted = 0;                
+                    roundCompleted = 0;
             }
 
 
@@ -36,10 +32,10 @@
         }
 
             $scope.score.doneEnteringUser = function () {
-        }
+            }
 
 
-	
+
         $scope.getRounds = function() {
             var roundsList = [];
             for (var i = 0; i < $scope.rounds; i++) {
@@ -78,4 +74,3 @@
 		}
 	
     }]);
-})();

@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="ScoreKeeper">
 <head>
     <meta charset="utf-8" />
     <title>ScoreTracker</title>
@@ -11,29 +11,35 @@
     <link href="css/bootstrap-theme.css" rel="stylesheet"/>
 
 </head>
-<body ng-app="ScoreKeeper" ng-controller="MainController">
+<body ng-controller="MainController">
     <div class="header text-left">
-        <h1>Score Keeper</h1>
+        <div class="header-title">Score Keeper</div>
 		<a class="btn-new-game fa fa-2x fa-gamepad btn" ng-click="clearRounds()" style="padding: 20px;">
 		</a>
     </div>
 
     <div class="container">
-        <a class="fa fa-2x fa-user btn btn-default btn-add-user" ng-click="addPlayer()"></a>
+        <!--<a class="fa fa-2x fa-user btn btn-default btn-add-user" ng-click="addPlayer()"></a> -->
+		<ul class="nav nav-pills">
+		  <li role="presentation" ng-click="addPlayer()" class="add-user-menu-item"><a href="#"><span class="fa fa-icon-plus"></span>Add Player</a></li>
+		</ul>
 		<table class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <td ng-repeat="user in users" nowrap="nowrap">                    
-                    <input display="none" class="user-input" type="text" name="score" maxlength="20" ng-model="user.name" ng-required="true" autocomplete="off" ng-blur="score.doneEnteringUser()" ng-pattern="/[a-z]/">
+						<div>                    
+							<input display="none" class="user-input" type="text" name="score" maxlength="20" ng-model="user.name" ng-required="true" autocomplete="off" ng-blur="score.doneEnteringUser()" ng-pattern="/[a-z]/">
                         </input>
                         <del class="fa fa-trash-o fa-fw delete-icon" ng-click="removePlayer($index)">
                         </del>                    
+						</div>
                         
+						<div class="total">
+							{{getTotal(user.scores) | number}}
+						</div>
                     </td>
                 </tr>
-				<tr>
-					<td ng-repeat="user in users" ng-click="getTotal()">{{getTotal(user.scores)}}</td>
-				</tr>
+				
             </thead>
             <tbody>
                 <tr ng-repeat="index in getRounds()">
@@ -50,13 +56,15 @@
     </div>
 
     <!-- Cordova reference, this is added to your app when it's built. -->
-    <script src="cordova.js"></script>
+    <!--<script src="cordova.js"></script> -->
     <script src="scripts/platformOverrides.js"></script>
     <script src="plugins/com.brodysoft.sqlitePlugin/www/SQLitePlugin.js"></script>
     <script src="scripts/frameworks/angular.min.js"></script>
     <script src="scripts/frameworks/angular-route.min.js"></script>
 
     <script src="scripts/index.js"></script>
+	<script src="scripts/index/services/GameService.js"></script>
     <script src="scripts/index/controller/MainController.js"></script>
+	
 </body>
 </html>
