@@ -12,24 +12,24 @@
 
 </head>
 <body ng-controller="MainController">
-    <div id="wrapper">
+    <div id="wrapper" ng-class="sideNav">
 		<div class="header navbar navbar-default navbar-fixed-top"> 
-			<a href="#menu-toggle" class="fa fa-2x fa-bars side-menu" id="menu-toggle"></a>
+			<a href="#menu-toggle" class="fa fa-2x fa-bars side-menu" id="menu-toggle" ng-click="sideNav='toggled'"></a>
 			<p class="header-title">Score Keeper</p>
 		</div>
 	
 	
 		<!-- Sidebar -->
-        <div id="sidebar-wrapper">
+        <div id="sidebar-wrapper" ng-class="sideNav">
             <ul class="sidebar-nav">
                 <li>
-                    <a href="#" ng-click="addPlayer()">Add Player</a>
+                    <a href="#" ng-click="addPlayer(); sideNav=''">Add Player</a>
                 </li>
 				<li>
-                    <a href="#" ng-click="clearRounds()">New Game</a>
+                    <a href="#" ng-click="clearRounds(); sideNav=''">New Game</a>
                 </li>
 				<li>
-                    <a href="#">About Us</a>
+                    <a href="#" ng-click="sideNav=''">About Us</a>
                 </li>
             </ul>
         </div>
