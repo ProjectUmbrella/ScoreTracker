@@ -88,7 +88,7 @@ h1 {
     position: fixed;
     left: 250px;
     width: 0;
-	margin-top: 1.1em;
+	margin-top: -3.4em;
     height: 100%;
     margin-left: -250px;
     overflow-y: auto;
@@ -106,7 +106,6 @@ h1 {
 
 #page-content-wrapper {
     width: 100%;
-    padding: 15px;
 	margin-top: 2.4em;
 }
 
@@ -150,4 +149,13 @@ h1 {
     height: 65px;
     font-size: 18px;
     line-height: 60px;
+}
+
+.table-fixed-top {
+	margin-top: 3em;
+	z-index: 0;
+}
+
+.table-margin {
+	margin-top: 7em;
 }
