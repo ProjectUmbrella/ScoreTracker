@@ -40,18 +40,18 @@
 			<table class="table table-bordered table-striped table-margin">
 				<thead style="z-index: 0;" class="navbar navbar-default navbar-fixed-top table-fixed-top">
 					<tr>
-						<td ng-repeat="user in users" nowrap="nowrap">
-							<div>                    
-								<input display="none" class="user-input" type="text" name="score" maxlength="20" ng-model="user.name" ng-required="true" autocomplete="off" ng-blur="score.doneEntering()" ng-pattern="/[a-z]/">
-								</input>
-								<del class="fa fa-trash-o fa-fw delete-icon" ng-click="removePlayer($index)">
-								</del>                    
-							</div>
-							
-							<div class="total">
-								{{getTotal(user.scores) | number}}
-							</div>
-						</td>
+                        <td class="action" ng-repeat="user in users" nowrap="nowrap" ng-click="PlayerLeftClick()" ng-right-click="PlayerRightClick()">
+                            <div>
+                                <input display="none" class="user-input" type="text" name="score" ng-model="user.name" ng-required="true" autocomplete="off" ng-blur="score.doneEntering()" ng-pattern="/[a-z]/">
+                                </input>
+                                <del class="fa fa-trash-o fa-fw delete-icon" ng-hide="hideDel" ng-click="removePlayer($index)">
+                                </del>
+                            </div>
+
+                            <div class="total">
+                                {{getTotal(user.scores) | number}}
+                            </div>
+                        </td>
 					</tr>
 					
 				</thead>
