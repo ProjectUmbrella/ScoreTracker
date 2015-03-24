@@ -2,10 +2,10 @@
 
 
 
-	angular.module('ScoreKeeper').controller('MainController', ['$scope', 'GameService', function($scope, GameService) {
+angular.module('ScoreKeeper').controller('MainController', ['$scope', 'gameService', function ($scope, gameService) {
         $scope.total = {};
         $scope.score = {};
-        $scope.users = GameService.getData();
+        $scope.users = gameService.getData();
         $scope.DEFAULTVALUE = "-0.0001";
         $scope.rounds = $scope.users[0].scores.length;
 
