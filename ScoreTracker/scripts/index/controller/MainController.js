@@ -8,6 +8,7 @@ angular.module('ScoreKeeper').controller('MainController', ['$scope', 'gameServi
         $scope.users = gameService.getData();
         $scope.DEFAULTVALUE = "-0.0001";
         $scope.rounds = $scope.users[0].scores.length;
+        $scope.hideDel = true;
 
         $scope.score.doneEntering = function () {
             var roundCompleted = 1;
@@ -73,4 +74,25 @@ angular.module('ScoreKeeper').controller('MainController', ['$scope', 'gameServi
 		    $scope.users.splice(index, 1);
 		}
 	
+		$scope.PlayerRightClick = function () {
+		    $scope.hideDel = false;
+		}
+
+		$scope.PlayerLeftClick = function () {
+		    $scope.hideDel = true;
+		}
+		
     }]);
+
+	app.directive('ngRightClick', function ($parse) {
+	    return function (scope, element, attrs) {
+	        var fn = $parse(attrs.ngRightClick);
+	        element.bind('contextmenu', function (event) {
+	            scope.$apply(function () {
+	                event.preventDefault();
+	                fn(scope, { $event: event });
+	            });
+	        });
+	    };
+	});
+	

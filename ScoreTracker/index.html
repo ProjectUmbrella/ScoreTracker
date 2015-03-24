@@ -6,49 +6,69 @@
 
     <!-- ScoreTracker references -->
     <link href="css/index.css" rel="stylesheet" />
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/font-awesome.min.css" rel="stylesheet" />
+	    <link href="css/bootstrap.min.css" rel="stylesheet" />
+	<link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/bootstrap-theme.css" rel="stylesheet" />
 
 </head>
 <body ng-controller="MainController">
-    <div class="header text-left">
-        <h1>Score Keeper</h1>
-        <a class="btn-new-game fa fa-2x fa-gamepad btn" ng-click="clearRounds()" style="padding: 20px;">
-        </a>
-    </div>
-
-    <div class="container">
-        <a class="fa fa-2x fa-user btn btn-default btn-add-user" ng-click="addPlayer()"></a>
-        <table class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <td ng-repeat="user in users" nowrap="nowrap">
-                        <input display="none" class="user-input" type="text" name="score" maxlength="20" ng-model="user.name" ng-required="true" autocomplete="off" ng-blur="score.doneEntering()" ng-pattern="/[a-z]/">
-                        </input>
-                        <del class="fa fa-trash-o fa-fw delete-icon" ng-click="removePlayer($index)">
-                        </del>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td ng-repeat="user in users" ng-click="getTotal()">{{getTotal(user.scores)}}</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="index in getRounds()">
-                    <td ng-repeat="user in users">{{user.scores[index].value}}</td>
-                </tr>
-                <tr>
-                    <td ng-repeat="user in users">
-                        <form novalidate>
-                            <input class="new-score-input" type="number" name="score" ng-model="score[$index]" ng-required="true" autocomplete="off" ng-blur="score.doneEntering()" ng-pattern="/[0-9]/"></input>
-                        </form>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
+    <div id="wrapper" ng-class="sideNav">
+		<div class="header navbar navbar-default navbar-fixed-top"> 
+			<a href="#menu-toggle" class="fa fa-2x fa-bars side-menu" id="menu-toggle" ng-click="sideNav='toggled'"></a>
+			<p class="header-title">Score Keeper</p>
+		</div>
+	
+	
+		<!-- Sidebar -->
+        <div id="sidebar-wrapper" ng-class="sideNav">
+            <ul class="sidebar-nav">
+                <li>
+                    <a href="#" ng-click="addPlayer(); sideNav=''">Add Player</a>
+                </li>
+				<li>
+                    <a href="#" ng-click="clearRounds(); sideNav=''">New Game</a>
+                </li>
+				<li>
+                    <a href="#" ng-click="sideNav=''">About Us</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+		
+		<div id="page-content-wrapper">
+			
+			<table class="table table-bordered table-striped table-margin">
+				<thead style="z-index: 0;" class="navbar navbar-default navbar-fixed-top table-fixed-top">
+					<tr>
+                        <td class="action" ng-repeat="user in users" nowrap="nowrap" ng-click="PlayerLeftClick()" ng-right-click="PlayerRightClick()">
+                            <div>
+                                <input display="none" class="user-input" type="text" name="score" ng-model="user.name" ng-required="true" autocomplete="off" ng-blur="score.doneEntering()" ng-pattern="/[a-z]/">
+								</input>
+                                <del class="fa fa-trash-o fa-fw delete-icon" ng-hide="hideDel" ng-click="removePlayer($index)">
+								</del>                    
+							</div>
+							
+							<div class="total">
+								{{getTotal(user.scores) | number}}
+							</div>
+						</td>
+					</tr>
+					
+				</thead>
+				<tbody>
+					<tr ng-repeat="index in getRounds()">
+						<td ng-repeat="user in users">{{user.scores[index].value}}</td>
+					</tr>
+					<tr>
+						<td ng-repeat="user in users">
+							<form novalidate>
+								<input class="new-score-input" type="number" name="score" ng-model="score[$index]" ng-required="true" autocomplete="off" ng-blur="score.doneEntering()" ng-pattern="/[0-9]/"></input>
+							</form>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		
     </div>
 
     <!-- Cordova reference, this is added to your app when it's built. -->
@@ -63,6 +83,18 @@
     <script src="scripts/services/game-service.js"></script>
     <!--<script src="scripts/index/services.js"></script>-->
     <script src="scripts/index/controller/MainController.js"></script>
-
+	
+	<!-- Bootstrap Core JavaScript -->
+	<script src="scripts/jquery.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+	
+	<!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+	
 </body>
 </html>
