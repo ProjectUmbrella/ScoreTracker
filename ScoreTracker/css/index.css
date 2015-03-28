@@ -1,5 +1,10 @@
-﻿body {
+﻿html{
+	height: 100%
+}
+
+body {
 	margin: 0;
+	height: 90%;
 }
 
 h1 {
@@ -88,7 +93,7 @@ h1 {
     position: fixed;
     left: 250px;
     width: 0;
-	margin-top: -3.4em;
+	margin-top: 1em;
     height: 100%;
     margin-left: -250px;
     overflow-y: auto;
@@ -161,5 +166,15 @@ h1 {
 }
 
 .table-margin {
-	margin-top: 7em;
+	margin-top: 1em;
+}
+
+thead tr th,
+tbody tr td {
+	min-width: 75px;
+}
+
+tbody {
+    overflow-y: auto;
+    height: 150px;
 }

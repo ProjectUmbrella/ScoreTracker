@@ -2,7 +2,7 @@
 
 
 
-angular.module('ScoreKeeper').controller('MainController', ['$scope', 'gameService', function ($scope, gameService) {
+var app = angular.module('ScoreKeeper').controller('MainController', ['$scope', 'gameService', function ($scope, gameService) {
         $scope.total = {};
         $scope.score = {};
         $scope.users = gameService.getData();
@@ -61,7 +61,8 @@ angular.module('ScoreKeeper').controller('MainController', ['$scope', 'gameServi
 		}
 
 		$scope.addPlayer = function () {
-		    $scope.users.push({ index: $scope.users.length, name: 'Player' + $scope.users.length, scores: [] });
+			var playerName = 'Player' + ($scope.users.length+1);
+		    $scope.users.push({ index: $scope.users.length, name: playerName, scores: [] });
 		    for (var i = 0; i < $scope.rounds; i++) {
 		        $scope.users[$scope.users.length-1].scores.push({
 		            round: i, value: 0

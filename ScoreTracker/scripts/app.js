@@ -6,17 +6,17 @@
 // and then run "window.location.reload()" in the JavaScript Console.
 
 "use strict";
-angular.module("ScoreKeeper", ['ngRoute']);
+angular.module("ScoreKeeper", ['ngRoute','ngResource']);
 
 var Umbrella = Umbrella || {};
 
 Umbrella.App = (function () {
 
-    //angular.element(document).ready(function () {
-    //    onDeviceReady();
-    //});
+    angular.element(document).ready(function () {
+        onDeviceReady();
+    });
 
-    document.addEventListener('deviceready', onDeviceReady.bind(this), false);
+   // document.addEventListener('deviceready', onDeviceReady.bind(this), false);
 
     function onDeviceReady() {
         // Handle the Cordova pause and resume events
